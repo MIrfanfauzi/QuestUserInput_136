@@ -77,6 +77,16 @@ fun FormDataDiri(modifier: Modifier
                 modifier = Modifier.align(Alignment.Center)
             )
         }
+
+        ElevatedCard(
+            elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            modifier = Modifier
+                .fillMaxWidth(0.9f)
+                .padding(10.dp)
+        ) {
+
+        }
         Row {
             gender.forEach{ item ->
                 Row(modifier = Modifier.selectable(

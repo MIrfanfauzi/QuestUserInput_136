@@ -90,7 +90,15 @@ fun FormDataDiri(modifier: Modifier
                     .padding(dimensionResource(id = R.dimen.padding_medium)),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-
+                Text(text = "NAMA LENGKAP", fontWeight = FontWeight.SemiBold)
+                OutlinedTextField(
+                    value = textNama,
+                    singleLine = true,
+                    shape = MaterialTheme.shapes.large,
+                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(text = "Isian nama lengkap") },
+                    onValueChange = { textNama = it }
+                )
             }
         }
         Row {

@@ -2,6 +2,7 @@ package com.example.input_pengguna
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -59,6 +60,15 @@ fun FormDataDiri(modifier: Modifier
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color(0xFF9C27B0))
+                .padding(vertical = 40.dp)
+        ) {
+
+        }
         Row {
             gender.forEach{ item ->
                 Row(modifier = Modifier.selectable(

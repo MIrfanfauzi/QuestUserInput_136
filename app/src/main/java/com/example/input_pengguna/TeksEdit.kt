@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
@@ -55,6 +57,7 @@ fun FormDataDiri(modifier: Modifier
     Column(
         modifier = modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(Color(0xFFBA68C8), Color(0xFF9C27B0))
@@ -102,20 +105,23 @@ fun FormDataDiri(modifier: Modifier
                     onValueChange = { textNama = it }
                 )
 
-                Row {
-                    gender.forEach{ item ->
-                        Row(modifier = Modifier.selectable(
-                            selected = textJK == item,
-                            onClick = {textJK = item}
-                        ), verticalAlignment = Alignment.CenterVertically){
-                            RadioButton(
+                Text(text = "JENIS KELAMIN", fontWeight = FontWeight.SemiBold)
+                gender.forEach { item ->
+                    Row(
+                        modifier = Modifier
+                            .selectable(
                                 selected = textJK == item,
-                                onClick =  {
-                                    textJK = item
-                                })
-                            Text(text = item)
-                        }
+                                onClick = { textJK = item }
+                            ),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        RadioButton(
+                            selected = textJK == item,
+                            onClick = { textJK = item }
+                        )
+                        Text(text = item)
                     }
+                }
 
                     Text(text = "STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
                     statusKawin.forEach { item ->
@@ -173,7 +179,7 @@ fun FormDataDiri(modifier: Modifier
                     colors = CardDefaults.cardColors(containerColor = Color.Black),
                     modifier = Modifier
                         .width(300.dp)
-                        .height(120.dp)
+                        .height(180.dp)
                 ) {
                     Column(
                         modifier = Modifier.padding(10.dp),
@@ -187,5 +193,5 @@ fun FormDataDiri(modifier: Modifier
                 }
             }
         }
-    }
 }
+

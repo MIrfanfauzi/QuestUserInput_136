@@ -99,23 +99,20 @@ fun FormDataDiri(modifier: Modifier
                     label = { Text(text = "Isian nama lengkap") },
                     onValueChange = { textNama = it }
                 )
-            }
-        }
-        Row {
-            gender.forEach{ item ->
-                Row(modifier = Modifier.selectable(
-                    selected = textJK == item,
-                    onClick = {textJK = item}
-                ), verticalAlignment = Alignment.CenterVertically){
-                    RadioButton(
-                        selected = textJK == item,
-                        onClick =  {
-                            textJK = item
-                        })
-                    Text(text = item)
+
+                Row {
+                    gender.forEach{ item ->
+                        Row(modifier = Modifier.selectable(
+                            selected = textJK == item,
+                            onClick = {textJK = item}
+                        ), verticalAlignment = Alignment.CenterVertically){
+
+                        }
+                    }
                 }
             }
         }
+
         OutlinedTextField(
             value = textAlamat,
             singleLine = true,

@@ -30,7 +30,9 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun FormDataDiri(modifier: Modifier
@@ -67,7 +69,13 @@ fun FormDataDiri(modifier: Modifier
                 .background(Color(0xFF9C27B0))
                 .padding(vertical = 40.dp)
         ) {
-
+            Text(
+                text = "Formulir Pendaftaran",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.White,
+                modifier = Modifier.align(Alignment.Center)
+            )
         }
         Row {
             gender.forEach{ item ->

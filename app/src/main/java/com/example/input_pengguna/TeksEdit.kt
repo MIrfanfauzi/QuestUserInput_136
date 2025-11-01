@@ -132,20 +132,20 @@ fun FormDataDiri(modifier: Modifier
                             Text(text = item)
                         }
                     }
+
+                    Text(text = "ALAMAT", fontWeight = FontWeight.SemiBold)
+                    OutlinedTextField(
+                        value = textAlamat,
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth(),
+                        label = { Text(text = "Alamat") },
+                        onValueChange = { textAlamat = it }
+                    )
                 }
             }
         }
 
-        OutlinedTextField(
-            value = textAlamat,
-            singleLine = true,
-            modifier = Modifier.width(width = 250.dp),
-            label = {Text(text = "Alamat Lengkap")},
-            onValueChange = {
-                textAlamat = it
-            }
 
-        )
         HorizontalDivider(
             modifier = Modifier.padding(
                 bottom = dimensionResource(id = R.dimen.padding_medium),

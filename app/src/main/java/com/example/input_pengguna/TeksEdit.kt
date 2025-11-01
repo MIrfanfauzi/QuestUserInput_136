@@ -114,6 +114,24 @@ fun FormDataDiri(modifier: Modifier
                             Text(text = item)
                         }
                     }
+
+                    Text(text = "STATUS PERKAWINAN", fontWeight = FontWeight.SemiBold)
+                    statusKawin.forEach { item ->
+                        Row(
+                            modifier = Modifier
+                                .selectable(
+                                    selected = textStatus == item,
+                                    onClick = { textStatus = item }
+                                ),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            RadioButton(
+                                selected = textStatus == item,
+                                onClick = { textStatus = item }
+                            )
+                            Text(text = item)
+                        }
+                    }
                 }
             }
         }

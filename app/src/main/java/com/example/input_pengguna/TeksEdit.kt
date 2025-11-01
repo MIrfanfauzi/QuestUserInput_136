@@ -1,8 +1,10 @@
 package com.example.input_pengguna
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
@@ -44,19 +47,18 @@ fun FormDataDiri(modifier: Modifier
     val gender: List<String> = listOf("Laki-Laki", "Perempuan")
     val statusKawin = listOf("Janda", "Lajang", "Duda")
 
-    Column(modifier=modifier.padding(top= 50.dp),
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(Color(0xFFBA68C8), Color(0xFF9C27B0))
+                )
+            )
+            .padding( bottom = 40.dp),
         verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        OutlinedTextField(
-            value = textNama,
-            singleLine = true,
-            shape = MaterialTheme.shapes.large,
-            modifier = Modifier.width(width = 250.dp),
-            label = { Text(text = "Nama Lengkap") },
-            onValueChange = {
-                textNama = it
-            }
-        )
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Row {
             gender.forEach{ item ->
                 Row(modifier = Modifier.selectable(

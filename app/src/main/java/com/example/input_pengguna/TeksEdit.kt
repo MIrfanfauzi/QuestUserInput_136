@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -163,42 +164,11 @@ fun FormDataDiri(modifier: Modifier
                     }
                 }
             }
-        }
 
 
-        HorizontalDivider(
-            modifier = Modifier.padding(
-                bottom = dimensionResource(id = R.dimen.padding_medium),
-                top = dimensionResource(
-                    id = R.dimen.padding_medium
-                )),
-            thickness = dimensionResource(id = R.dimen.divider_tipis),
-            color = Color.DarkGray
-        )
+            if (nama.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(20.dp))
 
-        HorizontalDivider(
-            modifier = Modifier
-                .padding(bottom = dimensionResource(id = R.dimen.padding_medium),
-                    top = dimensionResource(
-                        id = R.dimen.padding_medium
-                    )),
-            thickness = dimensionResource(id = R.dimen.divider_tipis),
-            color = Color.DarkGray
-        )
-        ElevatedCard(
-            elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-            colors = CardDefaults.cardColors(containerColor = Color.Black),
-            modifier = Modifier
-                .height(height = 100.dp)
-                .width(width = 300.dp)
-        ) {
-            Column (
-                modifier = Modifier
-                    .padding(horizontal = 5.dp, vertical = 15.dp),
-            ){
-                Text(text = "Nama: "+nama, color = Color.White)
-                Text(text = "Gender: "+jenis, color = Color.White)
-                Text(text = "Alamat: "+alamat, color = Color.White)
             }
         }
     }

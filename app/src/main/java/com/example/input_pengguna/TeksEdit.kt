@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.HorizontalDivider
@@ -141,6 +142,25 @@ fun FormDataDiri(modifier: Modifier
                         label = { Text(text = "Alamat") },
                         onValueChange = { textAlamat = it }
                     )
+
+                    Button(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 5.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF9C27B0)),
+                        enabled = textNama.isNotEmpty() && textAlamat.isNotEmpty(),
+                        onClick = {
+                            nama = textNama
+                            jenis = textJK
+                            alamat = textAlamat
+                            status = textStatus
+                        }
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.submit),
+                            color = Color.White
+                        )
+                    }
                 }
             }
         }
@@ -155,17 +175,7 @@ fun FormDataDiri(modifier: Modifier
             thickness = dimensionResource(id = R.dimen.divider_tipis),
             color = Color.DarkGray
         )
-        Button(
-            modifier = Modifier.fillMaxWidth(fraction = 1f),
-            enabled = textAlamat.isNotEmpty(),
-            onClick = {
-                nama=textNama
-                jenis=textJK
-                alamat=textAlamat
-            }
-        ) {
-            Text(text = stringResource(id = R.string.submit))
-        }
+
         HorizontalDivider(
             modifier = Modifier
                 .padding(bottom = dimensionResource(id = R.dimen.padding_medium),

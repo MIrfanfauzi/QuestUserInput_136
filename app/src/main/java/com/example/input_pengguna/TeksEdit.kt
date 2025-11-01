@@ -168,7 +168,23 @@ fun FormDataDiri(modifier: Modifier
 
             if (nama.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(20.dp))
-
+                ElevatedCard(
+                    elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.Black),
+                    modifier = Modifier
+                        .width(300.dp)
+                        .height(120.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.padding(10.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Text(text = "Nama: $nama", color = Color.White)
+                        Text(text = "Gender: $jenis", color = Color.White)
+                        Text(text = "Status: $status", color = Color.White)
+                        Text(text = "Alamat: $alamat", color = Color.White)
+                    }
+                }
             }
         }
     }
